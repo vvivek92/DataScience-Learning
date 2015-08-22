@@ -22,10 +22,16 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
-
-
 #########################################################
 ### your code goes here ###
+from sklearn.svm import SVC
+clf = SVC(kernel="rbf",verbose=True,C=10000)
+clf.fit(features_train,labels_train)
+pred_test = clf.predict(features_test)
+from sklearn.metrics import accuracy_score
+print(accuracy_score(labels_test, pred_test))
+print(pred_test)
+
 
 #########################################################
 
